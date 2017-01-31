@@ -1,6 +1,6 @@
-<?php namespace Sonnenglas\AmazonMws;
+<?php namespace mPixelz\AmazonMws;
 
-use Sonnenglas\AmazonMws\AmazonFeedsCore;
+use mPixelz\AmazonMws\AmazonFeedsCore;
 
 /**
  * Copyright 2013 CPI Group, LLC
@@ -156,7 +156,14 @@ class AmazonFeed extends AmazonFeedsCore
          *      UIEE Inventory File ~ _POST_UIEE_BOOKLOADER_DATA_
          */
     }
-
+    public function setSellerId($sellerId)
+    {
+        $this->options['SellerId'] = $sellerId;
+    }
+    public function setMWSAuthToken($authToken)
+    {
+        $this->options['MWSAuthToken'] = $authToken;
+    }
     /**
      * Sets the request ID(s). (Optional)
      *

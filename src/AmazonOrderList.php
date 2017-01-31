@@ -1,4 +1,4 @@
-<?php namespace Sonnenglas\AmazonMws;
+<?php namespace mPixelz\AmazonMws;
 
 use Config;
 use Iterator;
@@ -101,6 +101,14 @@ class AmazonOrderList extends AmazonOrderCore implements Iterator
         } else {
             return false;
         }
+    }
+    public function setSellerId($sellerId)
+    {
+        $this->options['SellerId'] = $sellerId;
+    }
+    public function setMWSAuthToken($authToken)
+    {
+        $this->options['MWSAuthToken'] = $authToken;
     }
 
     /**
