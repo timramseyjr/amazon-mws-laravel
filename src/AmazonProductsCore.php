@@ -89,6 +89,10 @@ abstract class AmazonProductsCore extends AmazonCore
             }
             if (isset($x->Products)) {
                 foreach ($x->Products->children() as $z) {
+                    if(is_array($temp['@attributes']) && array_key_exists('Id',$temp['@attributes'])) {
+                        $custom = $z->Identifiers->addChild('Custom');
+                        $custom->addChild('SKU', $temp['@attributes']['Id']);
+                    }
                     $this->productList[$this->index] = new AmazonProduct($this->storeName, $z, $this->mockMode,
                         $this->mockFiles);
                     $this->index++;
